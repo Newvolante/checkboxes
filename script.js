@@ -8,11 +8,11 @@
     selectAllOptions.addEventListener('change', function() {
         let allOptionsState = selectAllOptions.checked;
 
-        console.log(allOptionsState);
+        console.log('select all checkboxes: ' + allOptionsState);
 
         if (allOptionsState) {
             optionsNodelist.forEach(item => { item.checked = true; });
-        }
+        } else optionsNodelist.forEach(item => { item.checked = false; });
     });
 
 })();
