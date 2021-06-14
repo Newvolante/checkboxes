@@ -10,9 +10,20 @@
 
         console.log('select all checkboxes: ' + allOptionsState);
 
-        if (allOptionsState) {
-            optionsNodelist.forEach(item => { item.checked = true; });
-        } else optionsNodelist.forEach(item => { item.checked = false; });
+        optionsNodelist.forEach(item => {
+            item.checked = allOptionsState;
+        })
     });
 
+    optionsNodelist.forEach(item => {
+        item.addEventListener('change', function() {
+            let allORNot = Array.from(optionsNodelist).every(item => {
+                return item.checked == true;
+            })
+            
+            if (allORNot == false) {
+                selectAllOptions.checked = false;
+            } else selectAllOptions.checked = true;
+        });
+    });
 })();
